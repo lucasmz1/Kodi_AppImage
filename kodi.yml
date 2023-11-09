@@ -1,0 +1,44 @@
+version: 1
+
+script:
+  - rm -r ./AppDir || true
+
+AppDir:
+  app_info:
+    id: kodi
+    name: kodi
+    icon: kodi
+    version: latest
+    exec: usr/bin/kodi
+
+  apt:
+    arch: amd64
+    sources:
+      - sourceline: 'deb [trusted=yes] http://archive.ubuntu.com/ubuntu/ focal main restricted universe multiverse'
+      - sourceline: 'deb [trusted=yes] https://ppa.launchpadcontent.net/team-xbmc/ppa/ubuntu focal main'
+      - sourceline: 'deb [trusted=yes] http://archive.ubuntu.com/ubuntu/ focal-updates main restricted universe multiverse'
+
+    include:
+      - kodi
+
+  test:
+    debian:
+      image: appimagecrafters/tests-env:debian-stable
+      command: "./AppRun"
+    centos:
+      image: appimagecrafters/tests-env:centos-7
+      command: "./AppRun"
+    arch:
+      image: appimagecrafters/tests-env:archlinux-latest
+      command: "./AppRun"
+    fedora:
+      image: appimagecrafters/tests-env:fedora-30
+      command: "./AppRun"
+    ubuntu:
+      image: appimagecrafters/tests-env:ubuntu-xenial
+      command: "./AppRun"
+
+AppImage:
+  arch: x86_64
+  update-information: None
+  sign-key: None
