@@ -28,6 +28,8 @@ jobs:
         run: |
           chmod a+x kodi-musl-build.sh
           ./kodi-musl-build.sh
+          chmod a+x kodi-musl-build-pvr.sh
+          ./kodi-musl-build-pvr.sh
           mkdir dist
           mv *.AppImage* dist/
 
