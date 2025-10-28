@@ -30,7 +30,9 @@ jobs:
           ./kodi-musl-build.sh
           chmod a+x kodi-musl-build-pvr.sh
           ./kodi-musl-build-pvr.sh
-          if [ ! -f ./alp2/root/usr/lib/kodi/kodi-x11 ]; then
+          if 
+          [ ! -f ./alp2/root/usr/lib/kodi/kodi-x11 ]
+          then
           exit 1
           fi
           mkdir dist
