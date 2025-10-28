@@ -3,7 +3,7 @@ sudo apt-get install desktop-file-utils debootstrap schroot perl git wget curl x
 wget -q "https://github.com/AppImage/appimagetool/releases/download/continuous/appimagetool-x86_64.AppImage" -O appimagetool && chmod a+x appimagetool
 wget -q "https://dl-cdn.alpinelinux.org/alpine/v3.22/releases/x86_64/alpine-minirootfs-3.22.2-x86_64.tar.gz" -O alpine.tar.gz
 mkdir alp
-mkidr -p ./alp/root/
+mkdir -p ./alp/root/
 tar xf alpine.tar.gz -C ./alp/root/
 # criar no github uma nova pasta para o AppRun e demais arquivos.
 cp /etc/resolv.conf -t ${GITHUB_WORKSPACE}/alp/root/etc/
