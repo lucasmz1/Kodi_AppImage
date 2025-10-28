@@ -1,7 +1,7 @@
 #!/bin/bash
 sudo apt-get install desktop-file-utils debootstrap schroot perl git wget curl xz-utils bubblewrap autoconf coreutils
 wget -q "https://github.com/AppImage/appimagetool/releases/download/continuous/appimagetool-x86_64.AppImage" -O appimagetool && chmod a+x appimagetool
-wget -q "https://dl-cdn.alpinelinux.org/alpine/v3.22/releases/x86_64/alpine-minirootfs-3.22.2-x86_64.tar.gz" -O alpine.tar.gz
+wget -q "https://dl-cdn.alpinelinux.org/alpine/edge/releases/x86_64/alpine-minirootfs-20251016-x86_64.tar.gz" -O alpine.tar.gz
 mkdir alp2
 mkdir -p ./alp2/root/
 tar xf alpine.tar.gz -C ./alp2/root/
