@@ -6,7 +6,7 @@ tar xf alpine2.tar.gz -C ./alp2/root/
 # criar no github uma nova pasta para o AppRun e demais arquivos.
 cp /etc/resolv.conf -t ${GITHUB_WORKSPACE}/alp2/root/etc/
 cd ${GITHUB_WORKSPACE}
-echo "@testing http://dl-cdn.alpinelinux.org/alpine/edge/testing" >> ./alp2/root/etc/apk/repositories
+echo "http://dl-cdn.alpinelinux.org/alpine/edge/testing" >> ./alp2/root/etc/apk/repositories
 sudo chroot ./alp2/root/ /bin/ash -l -c "apk update && apk add kodi wireplumber pipewire pipewire-pulse pipewire-alsa pipewire-jack kodi-pvr-iptvsimple kodi-inputstream-ffmpegdirect kodi-inputstream-adaptive kodi-inputstream-rtmp --no-cache && rm -rf /var/cache/apk/* && exit"
 cp ${GITHUB_WORKSPACE}/files/AppRun ${GITHUB_WORKSPACE}/alp2/ && chmod a+x ${GITHUB_WORKSPACE}/alp2/AppRun && cp ${GITHUB_WORKSPACE}/files/kodi.svg -t ${GITHUB_WORKSPACE}/alp2/ && cp ${GITHUB_WORKSPACE}/files/kodi.desktop -t ${GITHUB_WORKSPACE}/alp2/
 ARCH=x86_64 VERSION=pvr ./appimagetool -n ./alp2/
