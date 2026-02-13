@@ -26,7 +26,6 @@ jobs:
 
       - name: Make AppImage
         run: |
-          echo $PATH
           chmod a+x kodi.sh
           ./kodi.sh
           mkdir dist
