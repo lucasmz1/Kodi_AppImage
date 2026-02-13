@@ -26,6 +26,7 @@ jobs:
 
       - name: Make AppImage
         run: |
+          echo $PATH
           chmod a+x kodi-musl-build.sh
           ./kodi-musl-build.sh
           chmod a+x kodi-musl-build-pvr.sh
