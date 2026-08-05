@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/env sh
 
 HERE=$(dirname $(readlink -f "${0}"))
 
@@ -20,4 +20,4 @@ export PULSE_SERVER=127.0.0.1
 
 export KODI_HOME="${HERE}"/root/usr/share/kodi/
 
-"${HERE}"/root/lib/libc.musl-x86_64.so.1 "${HERE}"/root/usr/lib/kodi/kodi-x11 "$@" | cat
+exec "${HERE}"/root/lib/libc.musl-x86_64.so.1 "${HERE}"/root/usr/lib/kodi/kodi-x11 "$@"
