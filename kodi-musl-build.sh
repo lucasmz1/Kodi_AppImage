@@ -10,7 +10,8 @@ cp /etc/resolv.conf -t ${GITHUB_WORKSPACE}/alp/root/etc/
 cd ${GITHUB_WORKSPACE}
 sudo chroot ./alp/root/ /bin/ash -l -c "apk update && apk upgrade && apk add kodi wireplumber pipewire pipewire-pulse pipewire-alsa pipewire-jack --no-cache && rm -rf /var/cache/apk/* && exit"
 cp ${GITHUB_WORKSPACE}/files/AppRun ${GITHUB_WORKSPACE}/alp/ && chmod a+x ${GITHUB_WORKSPACE}/alp/AppRun && cp ${GITHUB_WORKSPACE}/files/kodi.svg -t ${GITHUB_WORKSPACE}/alp/ && cp ${GITHUB_WORKSPACE}/files/kodi.desktop -t ${GITHUB_WORKSPACE}/alp/
+APPIMAGETOOL_APP_NAME="Kodi-clean"
 REPO="Kodi_AppImage"
 TAG="continuous-musl"
 UPINFO="gh-releases-zsync|$GITHUB_REPOSITORY_OWNER|$REPO|$TAG|*x86_64.AppImage.zsync"
-ARCH=x86_64 ./appimagetool -u "$UPINFO" ./alp/
+ARCH=x86_64 ./appimagetool -u "$UPINFO" ./alp/ "$APPIMAGETOOL_APP_NAME"
