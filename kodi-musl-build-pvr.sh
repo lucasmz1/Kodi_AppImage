@@ -11,7 +11,8 @@ sed -i "s/https://dl-cdn.alpinelinux.org/alpine/v3.22/main/g/https://dl-cdn.alpi
 sed -i "s/https://dl-cdn.alpinelinux.org/alpine/v3.22/community/g/https://dl-cdn.alpinelinux.org/alpine/edge/community"
 sudo chroot ./alp2/root/ /bin/ash -l -c "apk update && apk upgrade && apk add kodi wireplumber pipewire pipewire-pulse pipewire-alsa pipewire-jack kodi-pvr-iptvsimple kodi-inputstream-ffmpegdirect kodi-inputstream-adaptive kodi-inputstream-rtmp --no-cache && rm -rf /var/cache/apk/* && exit"
 cp ${GITHUB_WORKSPACE}/files/AppRun ${GITHUB_WORKSPACE}/alp2/ && chmod a+x ${GITHUB_WORKSPACE}/alp2/AppRun && cp ${GITHUB_WORKSPACE}/files/kodi.svg -t ${GITHUB_WORKSPACE}/alp2/ && cp ${GITHUB_WORKSPACE}/files/kodi.desktop -t ${GITHUB_WORKSPACE}/alp2/
+APPIMAGETOOL_APP_NAME="Kodi-pvr"
 REPO="Kodi_AppImage"
 TAG="continuous-musl"
 UPINFO="gh-releases-zsync|$GITHUB_REPOSITORY_OWNER|$REPO|$TAG|*x86_64.AppImage.zsync"
-ARCH=x86_64 ./appimagetool -u "$UPINFO" ./alp2/
+ARCH=x86_64 ./appimagetool -u "$UPINFO" ./alp/ "$APPIMAGETOOL_APP_NAME"
